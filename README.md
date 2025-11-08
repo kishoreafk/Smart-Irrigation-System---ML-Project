@@ -18,14 +18,16 @@ A machine learning-powered irrigation prediction system that uses weather data a
 ├── ml/                          # Python virtual environment
 ├── frontend/                    # React/Vite frontend application
 ├── TARP.csv/                    # Dataset directory
-├── train_models.py             # Model training script
-├── predict.py                  # Standalone prediction script
-├── app.py                      # Flask API server
-├── requirements.txt            # Python dependencies
-├── decision_tree_model.pkl     # Trained Decision Tree model
-├── xgboost_model.json          # Trained XGBoost model (JSON format)
-├── docs/                       # Documentation
-└── README.md                   # This file
+├── enhanced_training_pipeline.py # Model training script
+├── predict.py                   # Standalone prediction script
+├── app.py                       # Flask API server
+├── requirements.txt             # Python dependencies
+├── .env                         # Environment variables (API keys)
+├── .gitignore                   # Git ignore file
+├── decision_tree_model.pkl      # Trained Decision Tree model
+├── xgboost_model.json           # Trained XGBoost model (JSON format)
+├── docs/                        # Documentation
+└── README.md                    # This file
 ```
 
 ## Setup Instructions
@@ -61,10 +63,18 @@ source ml/bin/activate  # On Linux/Mac
 pip install -r requirements.txt
 ```
 
+#### Configure Environment Variables
+
+Create a `.env` file in the project root and add your OpenWeather API key:
+
+```bash
+API_KEY=your_openweather_api_key_here
+```
+
 #### Train the Models
 
 ```bash
-python train_models.py
+python enhanced_training_pipeline.py
 ```
 
 This will:
@@ -139,11 +149,11 @@ npm run dev
 The system uses OpenWeather API. To use your own API key:
 
 1. Get an API key from [OpenWeather](https://openweathermap.org/api)
-2. Update `API_KEY` in `app.py`
-3. Optionally change `LAT` and `LON` for different locations
+2. Add your API key to the `.env` file: `API_KEY=your_api_key_here`
+3. Optionally change `LAT` and `LON` in `app.py` for different locations
 
 ### Model Parameters
-Modify hyperparameters in `train_models.py`:
+Modify hyperparameters in `enhanced_training_pipeline.py`:
 - Decision Tree: `max_depth`, `min_samples_split`
 - XGBoost: `n_estimators`, `max_depth`, `learning_rate`
 
@@ -151,8 +161,8 @@ Modify hyperparameters in `train_models.py`:
 
 ### Common Issues
 
-1. **Missing Models**: Run `python train_models.py` first
-2. **Weather API Errors**: Check API key and internet connection
+1. **Missing Models**: Run `python enhanced_training_pipeline.py` first
+2. **Weather API Errors**: Check API key in `.env` file and internet connection
 3. **Port Conflicts**: Change port in `app.py` if 5000 is occupied
 4. **Virtual Environment**: Ensure virtual environment is activated
 
