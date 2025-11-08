@@ -45,3 +45,9 @@ logs/
 # Temporary files
 *.tmp
 *.temp
+
+
+frontend/node_modules/
+
+*.pkl
+xgboost_model.json
