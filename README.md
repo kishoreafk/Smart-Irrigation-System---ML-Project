@@ -12,6 +12,14 @@ A machine learning-powered irrigation prediction system that uses weather data a
 - **RESTful API**: Flask-based backend API for predictions
 - **Comprehensive Analytics**: Model performance metrics and feature importance analysis
 
+## Screenshots
+
+![Dashboard View](img/Screenshot%202025-11-06%20221007.png)
+*Interactive dashboard showing irrigation predictions and analytics*
+
+![Prediction Results](img/Screenshot%202025-11-06%20221050.png)
+*Real-time prediction results with water requirement estimation*
+
 ## Project Structure
 
 ```
